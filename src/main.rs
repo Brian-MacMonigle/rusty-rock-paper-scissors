@@ -6,6 +6,8 @@ use lazy_static::lazy_static;
 use rand::Rng;
 use regex::Regex;
 
+// After playing aroudn with Option<Choice> and Name<Option<String>> I much prefer the former.
+// I am leaving this as an example of how to do both patterns.
 struct Name(Option<String>);
 
 impl Name {
@@ -14,11 +16,10 @@ impl Name {
 			static ref NAME_PATTERN: regex::Regex = Regex::new("^[A-Za-z]+$").unwrap(); // Only letters allowed for names
 		}
 
-		let sanitized = match input {
+		match input {
 			Some(name) if NAME_PATTERN.is_match(&name) => Name(Some(name)),
 			_ => Name(None), // Note: None is displayed as Anon
-		};
-		sanitized
+		}
 	}
 }
 
