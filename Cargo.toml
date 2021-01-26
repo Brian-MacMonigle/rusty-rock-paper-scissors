@@ -1,0 +1,10 @@
+[package]
+name = "rock-paper-scissors"
+version = "0.1.0"
+authors = ["Brian MacMonigle <brian.macmonigle@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+lazy_static = "1.4.0"
+rand = "0.8.2"
+regex = "1.4.3"
